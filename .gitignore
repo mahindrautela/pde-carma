@@ -1,0 +1,8 @@
+# The TMLR submission remains local while under review.
+CARMA_TMLR.pdf
+
+# Legacy assets from the source Morph copy are not part of this site.
+static/media/
+
+# Preserved Git metadata from the source Morph copy.
+.git-morph-source/
