@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CARMA selects stochastic PDE rollouts at test time using forward-backward cyclic consistency, without access to future ground truth.">
+  <meta name="theme-color" content="#f8f7fb">
+  <title>CARMA · Ground-Truth-Free PDE Rollout Selection</title>
+  <link rel="stylesheet" href="static/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="CARMA home">
+      <span class="wordmark-mark" aria-hidden="true"></span>
+      CARMA
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <p class="eyebrow"><span></span> Under review at TMLR</p>
+      <h1 id="page-title">Ground-Truth-Free Selection in Conditional Generative PDE Surrogates <em>via Cyclic Consistency</em></h1>
+      <p class="hero-copy">CARMA uses a model’s forward–backward consistency to select a trajectory from stochastic PDE rollouts—without future ground truth or test-time parameter updates.</p>
+      <a class="button" href="#method">Explore the method <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="method" id="method" aria-labelledby="method-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">The method</p>
+          <h2 id="method-title">Train both ways. Select by the cycle.</h2>
+        </div>
+        <p>A shared direction-conditioned transformer learns adjacent PDE-state transitions in both physical-time directions. At inference, CARMA ranks complete rollout paths by how faithfully they reconstruct backward.</p>
+      </div>
+
+      <figure class="method-figure">
+        <div class="figure-frame">
+          <img src="pdecarma_main.png" alt="CARMA workflow: bidirectional training on adjacent PDE states, followed by forward rollout generation, reverse reconstruction, cyclic scoring, and ground-truth-free trajectory selection." width="1425" height="625">
+        </div>
+        <figcaption>Pairwise bidirectional training and cyclic rollout selection. Only the observed initial state is required at inference time.</figcaption>
+      </figure>
+
+      <div class="detail-grid" aria-label="CARMA method details">
+        <article>
+          <span class="detail-number">01</span>
+          <h3>Bidirectional learning</h3>
+          <p>One parameter-shared transformer learns forward and backward transitions from ordered pairs, using a direction code.</p>
+        </article>
+        <article>
+          <span class="detail-number">02</span>
+          <h3>Stochastic candidates</h3>
+          <p>Flow-matching or diffusion surrogates generate multiple autoregressive futures from the observed initial state.</p>
+        </article>
+        <article>
+          <span class="detail-number">03</span>
+          <h3>Cyclic selection</h3>
+          <p>Each terminal state is rolled backward. CARMA returns the original forward path with the smallest path-wise cyclic discrepancy.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>CARMA</span>
+    <span>Conditional generative PDE surrogates via cyclic consistency</span>
+  </footer>
+</body>
+</html>
