@@ -16,7 +16,7 @@ Then open `http://localhost:8000`.
 
 ## Publish with GitHub Pages
 
-1. Push the files to the `main` branch of the `pdecarma` repository.
+1. Push the files to the `main` branch of the `pde-carma` repository.
 2. Open **Settings → Pages**.
 3. Under **Build and deployment**, select **Deploy from a branch**.
 4. Select **main**, folder **/(root)**, and save.
@@ -24,7 +24,7 @@ Then open `http://localhost:8000`.
 The project site will be available at:
 
 ```text
-https://mahindrautela.github.io/pdecarma/
+https://mahindrautela.github.io/pde-carma/
 ```
 
 All asset paths are relative, so the site also works in a local preview.
