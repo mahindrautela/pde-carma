@@ -152,6 +152,40 @@ h3 {
   background: var(--soft);
 }
 
+.summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-inner {
+  width: min(var(--max-width), calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 4.5rem 0 5rem;
+}
+
+.summary h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.7vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.video-frame {
+  max-width: 960px;
+  margin: 1.75rem auto 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: #000000;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
 .method {
   width: min(var(--max-width), calc(100% - 3rem));
   margin: 0 auto;
@@ -325,6 +359,7 @@ footer span:first-child {
 
 @media (max-width: 760px) {
   .site-header,
+  .summary-inner,
   .method,
   .results-inner,
   footer {
@@ -343,6 +378,10 @@ footer span:first-child {
 
   .method {
     padding: 4.5rem 0 4rem;
+  }
+
+  .summary-inner {
+    padding: 4rem 0;
   }
 
   .section-heading {
