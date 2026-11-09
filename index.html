@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="CARMA selects stochastic PDE rollouts at test time using forward-backward cyclic consistency, without access to future ground truth.">
   <meta name="theme-color" content="#f8f7fb">
-  <title>CARMA · Ground-Truth-Free PDE Rollout Selection</title>
+  <title>Ground-Truth-Free Inference-Time Selection in Conditional Generative PDE Surrogates via Cyclic Consistency</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="static/css/site.css">
+  <script src="static/js/site.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -20,7 +21,7 @@
   <main id="top">
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">Under review at TMLR</p>
-      <h1 id="page-title">Ground-Truth-Free Selection in Conditional Generative PDE Surrogates via Cyclic Consistency</h1>
+      <h1 id="page-title">Ground-Truth-Free Inference-Time Selection in Conditional Generative PDE Surrogates via Cyclic Consistency</h1>
       <p class="hero-copy">CARMA selects among stochastic PDE rollouts using forward–backward consistency. It uses only the observed initial state and requires no test-time parameter updates.</p>
       <div class="hero-actions">
         <a class="button button-secondary"
@@ -58,7 +59,7 @@
 
       <figure class="method-figure">
         <div class="figure-frame">
-          <img src="pdecarma_main.png" alt="CARMA workflow: bidirectional training on adjacent PDE states, followed by forward rollout generation, reverse reconstruction, cyclic scoring, and ground-truth-free trajectory selection." width="6546" height="2775">
+          <img src="pdecarma_main.png" alt="CARMA workflow: bidirectional training on adjacent PDE states, followed by forward rollout generation, reverse reconstruction, cyclic scoring, and ground-truth-free trajectory selection." width="6516" height="2745">
         </div>
         <figcaption>Pairwise bidirectional training and cyclic rollout selection. Only the observed initial state is required at inference time.</figcaption>
       </figure>
@@ -89,33 +90,59 @@
 
         <div class="results-grid">
           <figure class="result-card">
-            <img src="static/results/ce-rm-bifmt-m.gif" alt="CE-RM autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+            <button class="result-preview" type="button" aria-label="Enlarge CE-RM autoregressive rollout">
+              <img src="static/results/ce-rm-bifmt-m.gif" alt="CE-RM autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+              <span class="zoom-hint" aria-hidden="true">Enlarge <span>↗</span></span>
+            </button>
             <figcaption>CE-RM · BiFMT-m</figcaption>
           </figure>
           <figure class="result-card">
-            <img src="static/results/ns-pwc-bifmt-m.gif" alt="NS-PwC autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+            <button class="result-preview" type="button" aria-label="Enlarge NS-PwC autoregressive rollout">
+              <img src="static/results/ns-pwc-bifmt-m.gif" alt="NS-PwC autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+              <span class="zoom-hint" aria-hidden="true">Enlarge <span>↗</span></span>
+            </button>
             <figcaption>NS-PwC · BiFMT-m</figcaption>
           </figure>
           <figure class="result-card">
-            <img src="static/results/ns-sl-bidit-m.gif" alt="NS-SL channel-1 autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+            <button class="result-preview" type="button" aria-label="Enlarge NS-SL autoregressive rollout">
+              <img src="static/results/ns-sl-bidit-m.gif" alt="NS-SL channel-1 autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+              <span class="zoom-hint" aria-hidden="true">Enlarge <span>↗</span></span>
+            </button>
             <figcaption>NS-SL · BiDiT-m</figcaption>
           </figure>
           <figure class="result-card">
-            <img src="static/results/ce-rpui-bifmt-m.gif" alt="CE-RPUI autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+            <button class="result-preview" type="button" aria-label="Enlarge CE-RPUI autoregressive rollout">
+              <img src="static/results/ce-rpui-bifmt-m.gif" alt="CE-RPUI autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+              <span class="zoom-hint" aria-hidden="true">Enlarge <span>↗</span></span>
+            </button>
             <figcaption>CE-RPUI · BiFMT-m</figcaption>
           </figure>
           <figure class="result-card">
-            <img src="static/results/2d-swe-bidit-m.gif" alt="2D-SWE autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+            <button class="result-preview" type="button" aria-label="Enlarge 2D-SWE autoregressive rollout">
+              <img src="static/results/2d-swe-bidit-m.gif" alt="2D-SWE autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+              <span class="zoom-hint" aria-hidden="true">Enlarge <span>↗</span></span>
+            </button>
             <figcaption>2D-SWE · BiDiT-m</figcaption>
           </figure>
           <figure class="result-card">
-            <img src="static/results/fns-kf-bidit-m.gif" alt="FNS-KF autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+            <button class="result-preview" type="button" aria-label="Enlarge FNS-KF autoregressive rollout">
+              <img src="static/results/fns-kf-bidit-m.gif" alt="FNS-KF autoregressive rollout comparing ground truth, the evaluation-only oracle, and CARMA." loading="lazy" decoding="async">
+              <span class="zoom-hint" aria-hidden="true">Enlarge <span>↗</span></span>
+            </button>
             <figcaption>FNS-KF · BiDiT-m</figcaption>
           </figure>
         </div>
       </div>
     </section>
   </main>
+
+  <dialog class="rollout-dialog" id="rollout-dialog" aria-labelledby="rollout-dialog-title">
+    <button class="dialog-close" type="button" aria-label="Close enlarged rollout">×</button>
+    <figure>
+      <img id="rollout-dialog-image" alt="">
+      <figcaption id="rollout-dialog-title"></figcaption>
+    </figure>
+  </dialog>
 
   <footer>
     <span>CARMA</span>
